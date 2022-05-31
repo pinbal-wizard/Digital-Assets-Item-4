@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    internal class Weapon : Item
+    public class Weapon : Item
     {
         private int maxDamage = 0;
         private int minDamage = 0;

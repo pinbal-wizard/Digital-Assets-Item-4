@@ -10,16 +10,28 @@ namespace Item_4
     {
         static void Main()
         {
-            Weapon sword = new Weapon("Sword", 1, 5);
-            Player joe = new Player("joe",10);
-            Player joeb = new Player("joeb", 20);
+            Game game = new Game();
+
+            Warrior joe = new Warrior("joe", 20);
+            NPC joeb = new NPC("joeb", 20);
+
+            game.PlayerJoin(joe);
+
+            joe.Attack(joeb);
+
+            Weapon sword = new Weapon("Sword", 3, 5);
+            Weapon Longsword = new Weapon("LongSword", 1, 10);
 
             joe.EquipWeapon(sword);
-            while (joeb.Health >=0)
+            joeb.EquipWeapon(Longsword);
+
+            while (joe.Health > 0 & joeb.Health > 0)
             {
                 joe.Attack(joeb);
-                Console.ReadKey();
+                joeb.Attack(joe);
             }
+
+            game.PlayerLeave(joe);
 
         }
     }

@@ -1533,7 +1533,7 @@ associating them to their use cases.</val>
 <ref refid="b731bb32-71b5-11ec-a409-f47b099bf663"/>
 </subject>
 <lifetime-length>
-<val>314.0</val>
+<val>364.0</val>
 </lifetime-length>
 </LifelineItem>
 <Interaction id="b73251a0-71b5-11ec-a409-f47b099bf663">
@@ -1593,7 +1593,7 @@ associating them to their use cases.</val>
 <ref refid="c20319f2-71b5-11ec-a409-f47b099bf663"/>
 </subject>
 <lifetime-length>
-<val>314.0</val>
+<val>364.0</val>
 </lifetime-length>
 </LifelineItem>
 <MessageItem id="e76cab04-71b5-11ec-a409-f47b099bf663">
@@ -2538,6 +2538,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="ae1215fc-dd7a-11ec-9003-b0403128d8bc"/>
 <ref refid="e4be5798-dd7a-11ec-becd-b0403128d8bc"/>
 <ref refid="735c5590-e088-11ec-9e4b-b0403128d8bc"/>
+<ref refid="95868e25-e0d8-11ec-8f32-2cf05d6f3b86"/>
 <ref refid="da338a36-dd5e-11ec-8010-b0403128d8bc"/>
 <ref refid="681eef59-dd5f-11ec-b676-b0403128d8bc"/>
 <ref refid="5c1475ce-dd63-11ec-99bf-b0403128d8bc"/>
@@ -2572,6 +2573,8 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="fa767a8f-dd7a-11ec-9aaa-b0403128d8bc"/>
 <ref refid="78346192-e088-11ec-ac60-b0403128d8bc"/>
 <ref refid="a500eba5-e088-11ec-b832-b0403128d8bc"/>
+<ref refid="c23f17b1-e0d8-11ec-928a-2cf05d6f3b86"/>
+<ref refid="d6ed4974-e0d8-11ec-8ec3-2cf05d6f3b86"/>
 </reflist>
 </ownedPresentation>
 </Diagram>
@@ -2619,6 +2622,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ownedAttribute>
 <reflist>
 <ref refid="787ad02f-dd5e-11ec-b54e-b0403128d8bc"/>
+<ref refid="5702f620-e0da-11ec-8afb-2cf05d6f3b86"/>
 </reflist>
 </ownedAttribute>
 <presentation>
@@ -2635,10 +2639,10 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(0.0, 0.0)</val>
 </top-left>
 <width>
-<val>186.0</val>
+<val>219.0</val>
 </width>
 <height>
-<val>76.0</val>
+<val>94.0</val>
 </height>
 <diagram>
 <ref refid="97412afe-dd5c-11ec-9bd9-b0403128d8bc"/>
@@ -2684,6 +2688,11 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="d45432ab-dd5c-11ec-8cde-b0403128d8bc"/>
 </reflist>
 </presentation>
+<supplierDependency>
+<reflist>
+<ref refid="c40efb92-e0d8-11ec-be2e-2cf05d6f3b86"/>
+</reflist>
+</supplierDependency>
 </Class>
 <ClassItem id="d45432ab-dd5c-11ec-8cde-b0403128d8bc">
 <matrix>
@@ -2821,7 +2830,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="af9f16d1-dd5c-11ec-8aca-b0403128d8bc"/>
 </class_>
 <name>
-<val>-mapObjects List&lt;MapItem&gt;</val>
+<val>-movingLayer List&lt;MapItem&gt;</val>
 </name>
 </Property>
 <AssociationItem id="da338a36-dd5e-11ec-8010-b0403128d8bc">
@@ -2844,7 +2853,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 673.0, 292.0)</val>
 </matrix>
 <points>
-<val>[(-160.0, -20.0), (17.0, -20.0)]</val>
+<val>[(-160.0, -20.0), (17.0, -8.868421052631561)]</val>
 </points>
 <head-connection>
 <ref refid="9d471724-dd5c-11ec-b12b-b0403128d8bc"/>
@@ -2885,7 +2894,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </Property>
 <Property id="dfd88a10-dd5e-11ec-9ce2-b0403128d8bc">
 <aggregation>
-<val>composite</val>
+<val>shared</val>
 </aggregation>
 <association>
 <ref refid="dfd85b7b-dd5e-11ec-aff2-b0403128d8bc"/>
@@ -2968,7 +2977,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 1016.0, 275.0)</val>
 </matrix>
 <points>
-<val>[(-140.0, -3.0), (2.0, -3.0)]</val>
+<val>[(-107.0, 8.131578947368439), (2.0, -3.0)]</val>
 </points>
 <head-connection>
 <ref refid="af9f3e52-dd5c-11ec-b0d3-b0403128d8bc"/>
@@ -3241,7 +3250,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 1006.5711132258766, 473.27615552744203)</val>
 </matrix>
 <points>
-<val>[(0.0, 0.0), (0.0, -79.37487299692134), (64.92888677412338, -79.37487299692134), (64.92888677412344, -141.27615552744203)]</val>
+<val>[(0.0, 0.0), (0.0, -79.37487299692134), (64.92888677412338, -79.37487299692134), (64.92888677412361, -123.27615552744203)]</val>
 </points>
 </InterfaceRealizationItem>
 <InterfaceRealizationItem id="7a76a6c1-dd63-11ec-ad1b-b0403128d8bc">
@@ -3255,7 +3264,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 1266.33865199762, 486.0983192328115)</val>
 </matrix>
 <points>
-<val>[(0.0, -12.822163705369576), (0.0, -92.1970367022908), (-194.83865199762022, -92.1970367022908), (-194.83865199762, -151.9663846562302)]</val>
+<val>[(0.0, -12.822163705369576), (0.0, -92.1970367022908), (-194.83865199762022, -92.1970367022908), (-194.83865199762022, -136.09831923281138)]</val>
 </points>
 </InterfaceRealizationItem>
 <GeneralizationItem id="7e920e53-dd63-11ec-8e3b-b0403128d8bc">
@@ -3761,7 +3770,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(0.0, 0.0)</val>
 </top-left>
 <width>
-<val>125.61515968676571</val>
+<val>159.0</val>
 </width>
 <height>
 <val>94.53488905689085</val>
@@ -3794,7 +3803,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="b4b42080-dd67-11ec-a374-b0403128d8bc"/>
 </class_>
 <name>
-<val>more range and</val>
+<val>more range</val>
 </name>
 </Property>
 <Property id="19cb3839-dd68-11ec-8fc7-b0403128d8bc">
@@ -3802,7 +3811,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="b4b42080-dd67-11ec-a374-b0403128d8bc"/>
 </class_>
 <name>
-<val>damage spread</val>
+<val>higher damage spread</val>
 </name>
 </Property>
 <GeneralizationItem id="21294ae1-dd68-11ec-91cf-b0403128d8bc">
@@ -3878,7 +3887,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 285.2566782944562, 728.5380579531429)</val>
 </matrix>
 <points>
-<val>[(-70.2737228387507, -99.20693067311356), (-70.2737228387507, -42.66618886638423), (-71.18215699560653, 0.836591938556694)]</val>
+<val>[(-70.2737228387507, -99.20693067311356), (-70.2737228387507, -42.66618886638423), (-71.18215699560665, 0.8365919385565803)]</val>
 </points>
 <head-connection>
 <ref refid="e9fb714d-dd5c-11ec-99f2-b0403128d8bc"/>
@@ -5046,7 +5055,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </Comment>
 <CommentItem id="71c2c1e4-dd7a-11ec-8aab-b0403128d8bc">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 1292.2335288565043, 225.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 1198.0091570500426, 226.00000000000003)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -5075,7 +5084,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 1126.6157132389046, 301.2386184443205)</val>
 </matrix>
 <points>
-<val>[(165.6178156175999, -0.23861844432045132), (-1.6157132389046183, -0.23861844432047974)]</val>
+<val>[(71.39344381113801, -0.23861844432053658), (-1.6157132389046183, -0.23861844432047974)]</val>
 </points>
 <tail-connection>
 <ref refid="3e5dce7a-dd5f-11ec-b4bb-b0403128d8bc"/>
@@ -5093,7 +5102,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </Comment>
 <CommentItem id="8c87d413-dd7a-11ec-a19e-b0403128d8bc">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 622.8970673713721, 432.7142230171822)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 628.2638755425879, 556.7456570351309)</val>
 </matrix>
 <top-left>
 <val>(0.0, 7.929410480768411)</val>
@@ -5119,10 +5128,10 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>0</val>
 </horizontal>
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 533.4080062312703, 513.051593186937)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 538.7748144024863, 626.6433488909188)</val>
 </matrix>
 <points>
-<val>[(89.48906114010185, -6.455150319486506), (0.1901089112009231, -6.455150319486506)]</val>
+<val>[(89.48906114010185, -6.455150319486506), (-5.176699260015084, -6.455150319486506)]</val>
 </points>
 <tail-connection>
 <ref refid="d45432ab-dd5c-11ec-8cde-b0403128d8bc"/>
@@ -5401,4 +5410,122 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="1efbd220-dd77-11ec-92eb-b0403128d8bc"/>
 </specific>
 </Generalization>
+<Class id="95866763-e0d8-11ec-a45d-2cf05d6f3b86">
+<clientDependency>
+<reflist>
+<ref refid="c40efb92-e0d8-11ec-be2e-2cf05d6f3b86"/>
+</reflist>
+</clientDependency>
+<name>
+<val>MovingMapItem</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="e7a924d3-e0d8-11ec-a3c0-2cf05d6f3b86"/>
+<ref refid="eb933aea-e0d8-11ec-96d2-2cf05d6f3b86"/>
+</reflist>
+</ownedAttribute>
+<presentation>
+<reflist>
+<ref refid="95868e25-e0d8-11ec-8f32-2cf05d6f3b86"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="95868e25-e0d8-11ec-8f32-2cf05d6f3b86">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 795.28, 473.2761555274419)</val>
+</matrix>
+<top-left>
+<val>(0.0, 0.0)</val>
+</top-left>
+<width>
+<val>124.0</val>
+</width>
+<height>
+<val>94.0</val>
+</height>
+<diagram>
+<ref refid="97412afe-dd5c-11ec-9bd9-b0403128d8bc"/>
+</diagram>
+<subject>
+<ref refid="95866763-e0d8-11ec-a45d-2cf05d6f3b86"/>
+</subject>
+</ClassItem>
+<DependencyItem id="c23f17b1-e0d8-11ec-928a-2cf05d6f3b86">
+<diagram>
+<ref refid="97412afe-dd5c-11ec-9bd9-b0403128d8bc"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<subject>
+<ref refid="c40efb92-e0d8-11ec-be2e-2cf05d6f3b86"/>
+</subject>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 808.5876947231523, 392.7016869438154)</val>
+</matrix>
+<points>
+<val>[(-274.98957958068104, 133.91002045487687), (-13.30769472315228, 133.91002045487687)]</val>
+</points>
+<head-connection>
+<ref refid="d45432ab-dd5c-11ec-8cde-b0403128d8bc"/>
+</head-connection>
+<tail-connection>
+<ref refid="95868e25-e0d8-11ec-8f32-2cf05d6f3b86"/>
+</tail-connection>
+<auto_dependency>
+<val>1</val>
+</auto_dependency>
+</DependencyItem>
+<Dependency id="c40efb92-e0d8-11ec-be2e-2cf05d6f3b86">
+<client>
+<ref refid="95866763-e0d8-11ec-a45d-2cf05d6f3b86"/>
+</client>
+<presentation>
+<reflist>
+<ref refid="c23f17b1-e0d8-11ec-928a-2cf05d6f3b86"/>
+</reflist>
+</presentation>
+<supplier>
+<ref refid="d45432aa-dd5c-11ec-a00a-b0403128d8bc"/>
+</supplier>
+</Dependency>
+<InterfaceRealizationItem id="d6ed4974-e0d8-11ec-8ec3-2cf05d6f3b86">
+<diagram>
+<ref refid="97412afe-dd5c-11ec-9bd9-b0403128d8bc"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 856.1076947231521, 473.2761555274419)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (1.1723052768479647, -79.37487299692123), (215.392305276848, -79.37487299692123), (215.39230527684776, -120.86635055514574)]</val>
+</points>
+</InterfaceRealizationItem>
+<Property id="e7a924d3-e0d8-11ec-a3c0-2cf05d6f3b86">
+<class_>
+<ref refid="95866763-e0d8-11ec-a45d-2cf05d6f3b86"/>
+</class_>
+<name>
+<val>xPos Int</val>
+</name>
+</Property>
+<Property id="eb933aea-e0d8-11ec-96d2-2cf05d6f3b86">
+<class_>
+<ref refid="95866763-e0d8-11ec-a45d-2cf05d6f3b86"/>
+</class_>
+<name>
+<val>yPos Int</val>
+</name>
+</Property>
+<Property id="5702f620-e0da-11ec-8afb-2cf05d6f3b86">
+<class_>
+<ref refid="af9f16d1-dd5c-11ec-8aca-b0403128d8bc"/>
+</class_>
+<name>
+<val>-backgroundLayer List&lt;MapItem&gt;</val>
+</name>
+</Property>
 </gaphor>
