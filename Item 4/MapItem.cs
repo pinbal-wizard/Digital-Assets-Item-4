@@ -10,5 +10,6 @@ namespace Item_4
     {
         int XPos { get; set; }
         int YPos { get; set; }
+        bool isWalkable { get; set; }
     }
 }
