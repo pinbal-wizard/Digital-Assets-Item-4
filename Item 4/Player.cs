@@ -8,5 +8,9 @@ namespace Item_4
 {
     public abstract class Player : Character
     {
+        public void Move()
+        {
+            map.MoveMovingObject(this.XPos, this.YPos, 2, 2);
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace Item_4
         public int XPos { get; set; }
         public int YPos { get; set; }
         bool isWalkable { get; set; }
+
+        public String MapViewChar { get; set; }
     }
 }

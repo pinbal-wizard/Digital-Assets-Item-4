@@ -12,12 +12,23 @@ namespace Item_4
         {
             Game game = new Game();
 
-            Warrior joe = new Warrior("joe", 20);
-            NPC joeb = new NPC("joeb", 20);
+            Map map = new Map(@"../../../GameArea.xml");
+            game.currentMap = map;
+
+            Warrior joe = new Warrior(0, 0, "joe", 20);
+            joe.map = map;
+            NPC joeb = new NPC(0,0,"joeb", 20);
+            joeb.map = map;
 
             game.PlayerJoin(joe);
+            game.NPCJoin(joeb);
 
-            joe.Attack(joeb);
+            map.DrawMap();
+            joe.Move();
+            Console.ReadKey();
+            map.DrawMap();
+
+            /*joe.Attack(joeb);
 
             Weapon sword = new Weapon("Sword", 3, 5);
             Weapon Longsword = new Weapon("LongSword", 1, 10);
@@ -31,7 +42,7 @@ namespace Item_4
                 joeb.Attack(joe);
             }
 
-            game.PlayerLeave(joe);
+            game.PlayerLeave(joe);*/
 
         }
     }

@@ -14,6 +14,11 @@ namespace Item_4
         private int health;
         private bool dead;
 
+        public int xPos;
+        public int yPos;
+        public Map map;
+        public PlayerMapItem mapReference;
+
         public int Health
         {
             get { return health; }
@@ -40,6 +45,24 @@ namespace Item_4
                     name = "default name";
                 else
                     name = value;
+            }
+        }
+
+        public int XPos
+        {
+            get { return xPos; }
+            set
+            {
+                xPos = value;
+            }
+        }
+
+        public int YPos
+        {
+            get { return yPos; }
+            set
+            {
+                yPos = value;
             }
         }
 

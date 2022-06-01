@@ -8,17 +8,35 @@ namespace Item_4
 {
     public class Warrior : Player
     {
-        public Warrior(string name, int health)
+        public Warrior(int xPos, int yPos, string name, int health)
         {
+            this.XPos = xPos;
+            this.YPos = yPos;
             this.Name = name;
             this.Health = health;
-            this.EquipWeapon(new Weapon("Fists", 0, 2) );
+            this.EquipWeapon(new Weapon("Fists", 0, 2));
+            this.mapReference = new PlayerMapItem(XPos, YPos,"W")
+            {
+                XPos = xPos,
+                YPos = yPos,
+                isWalkable = true,
+                MapViewChar = "W"
+            };
         }
-        public Warrior(string name, int health, Weapon weapon)
+        public Warrior(int xPos, int yPos,string name, int health, Weapon weapon)
         {
+            this.XPos = xPos;
+            this.YPos = yPos;
             this.Name = name;
             this.Health = health;
             this.EquipWeapon(weapon);
+            this.mapReference = new PlayerMapItem(XPos, YPos,"W")
+            {
+                XPos = xPos,
+                YPos = yPos,
+                isWalkable = true,
+                MapViewChar = "W"
+            };
         }
 
     }
