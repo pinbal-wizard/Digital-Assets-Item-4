@@ -16,17 +16,16 @@ namespace Item_4
             game.currentMap = map;
 
             Warrior joe = new Warrior(0, 0, "joe", 20);
+            Warrior joec = new Warrior(0, 0, "joec", 20);
             joe.map = map;
             NPC joeb = new NPC(0,0,"joeb", 20);
             joeb.map = map;
 
             game.PlayerJoin(joe);
+            game.PlayerJoin(joec);
             game.NPCJoin(joeb);
 
-            map.DrawMap();
-            joe.Move();
-            Console.ReadKey();
-            map.DrawMap();
+            game.UpdateGui();
 
             /*joe.Attack(joeb);
 
