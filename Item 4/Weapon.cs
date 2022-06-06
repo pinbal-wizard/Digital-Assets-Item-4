@@ -6,25 +6,36 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    public class Weapon : Item
+    public class Weapon 
     {
+        private string name;
+
         private int maxDamage = 0;
         private int minDamage = 0;
 
+        public string Name
+        {
+            get => name;
+            set { 
+                if(name is null)
+                {
+                    value = "deafult name";
+                }
+                name = value + " ";
+            }
+        }
         public int MaxDamage
         {
             get => maxDamage;
-            set => maxDamage = value;
         }
         public int MinDamage
         {
             get => minDamage;
-            set => minDamage = value;
         }
 
         public Weapon(string name, int minD, int maxD)
         {
-            this.Name = name;
+            this.name = name;
             this.minDamage = minD;
             this.maxDamage = maxD;
         }

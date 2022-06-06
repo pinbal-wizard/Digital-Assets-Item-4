@@ -8,9 +8,13 @@ namespace Item_4
 {
     public abstract class Player : Character
     {
-        public void Move()
+        public void Join()
         {
-            map.MoveMovingObject(this.XPos, this.YPos, 2, 2);
+            game.PlayerJoin(this);
         }
+        public void Leave()
+        {
+            game.PlayerLeave(this);
+        }        
     }
 }

@@ -8,35 +8,30 @@ namespace Item_4
 {
     public class Warrior : Player
     {
-        public Warrior(int xPos, int yPos, string name, int health)
+        protected int defence = 2;
+        public Warrior(int xPos, int yPos, string name, int health, Game game)
         {
-            this.XPos = xPos;
-            this.YPos = yPos;
+            this.xPos = xPos;
+            this.yPos = yPos;
             this.Name = name;
-            this.Health = health;
-            this.EquipWeapon(new Weapon("Fists", 0, 2));
-            this.mapReference = new PlayerMapItem(XPos, YPos,"W")
-            {
-                XPos = xPos,
-                YPos = yPos,
-                isWalkable = true,
-                MapViewChar = "W"
-            };
+            this.health = health;
+            this.EquipWeapon(new Weapon("Fists", 1, 1));
+            this.isWalkable = false;
+            this.mapViewChar = "W";
+            this.game = game;
+            game.PlayerJoin(this);
         }
-        public Warrior(int xPos, int yPos,string name, int health, Weapon weapon)
+        public Warrior(int xPos, int yPos, string name, int health, Weapon weapon, Game game)
         {
-            this.XPos = xPos;
-            this.YPos = yPos;
+            this.xPos = xPos;
+            this.yPos = yPos;
             this.Name = name;
-            this.Health = health;
+            this.health = health;
             this.EquipWeapon(weapon);
-            this.mapReference = new PlayerMapItem(XPos, YPos,"W")
-            {
-                XPos = xPos,
-                YPos = yPos,
-                isWalkable = true,
-                MapViewChar = "W"
-            };
+            this.isWalkable = false;
+            this.mapViewChar = "W";
+            this.game = game;
+            game.PlayerJoin(this);
         }
 
     }
