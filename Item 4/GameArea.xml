@@ -2,7 +2,11 @@
 <Map>
 	<Row>
 		<Column>.</Column>
-		<Column>@</Column>
+		<Column>.</Column>
+		<Column>.</Column>
+		<Column>.</Column>
+	</Row>
+	<Row>
 		<Column>.</Column>
 		<Column>.</Column>
 		<Column>.</Column>
@@ -10,58 +14,13 @@
 	</Row>
 	<Row>
 		<Column>.</Column>
-		<Column>@</Column>
 		<Column>.</Column>
-		<Column>.</Column>
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
 		<Column>.</Column>
 		<Column>.</Column>
 	</Row>
 	<Row>
 		<Column>.</Column>
-		<Column>@</Column>
 		<Column>.</Column>
-		<Column>.</Column>
-
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
-		<Column>.</Column>
-		<Column>.</Column>
-
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
-		<Column>.</Column>
-		<Column>.</Column>
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
-		<Column>.</Column>
-		<Column>.</Column>
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
-		<Column>.</Column>
-		<Column>.</Column>
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
-		<Column>.</Column>
-		<Column>.</Column>
-
-	</Row>
-	<Row>
-		<Column>.</Column>
-		<Column>@</Column>
 		<Column>.</Column>
 		<Column>.</Column>
 

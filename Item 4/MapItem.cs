@@ -8,10 +8,10 @@ namespace Item_4
 {
     public interface MapItem
     {
-        public int XPos { get; set; }
-        public int YPos { get; set; }
-        bool isWalkable { get; set; }
+        public int XPos { get;}
+        public int YPos { get;}
+        bool IsWalkable { get;}
 
-        public String MapViewChar { get; set; }
+        public String MapViewChar { get;}
     }
 }

@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    internal class Game
+    public enum Layer
     {
-        public List<Player> currentPlayers;
-        public List<NPC> currentEntities;
-        public Map currentMap;
+        Bottom,
+        Top
+    }
+    public class Game
+    {
+        private List<Player> currentPlayers;
+        private List<NPC> currentEntities;
+        private MapSpace currentMap;
+
+        public List<Player> CurrentPlayers { get; }
+        public List<NPC> CurrentEntities { get; }
+        public MapSpace CurrentMap { get; }
 
         public Game()
         {
             currentPlayers = new List<Player> { };
             currentEntities = new List<NPC> { };
         }
-        public Game(List<Player> currentplayers, Map map)
+        public Game(List<Player> currentplayers, MapSpace map)
         {
             currentPlayers = currentplayers;
             currentMap = map;
@@ -28,41 +37,61 @@ namespace Item_4
         {
             int xOffset = 0;
             int yOffset = 0;
-            currentPlayers.Add(player);
-            while (currentMap.movingLayer[player.mapReference.XPos + xOffset, player.mapReference.YPos + yOffset] is not null)
+            while (currentMap.Map[xOffset,yOffset, (int)Layer.Top] is not null)
             {
                 Console.WriteLine("Something in the way");
                 xOffset += 1;
             }
-            currentMap.movingLayer[player.mapReference.XPos + xOffset, player.mapReference.YPos + yOffset] = player.mapReference;
-            Console.WriteLine("{0} has joined", player.Name);
+            currentMap.Map[xOffset, yOffset, (int)Layer.Top] = player;
+            currentPlayers.Add(player);
+            UpdateGui();
         }
 
+        public void PlayerLeave(Player player)
+        {
+            currentPlayers.Remove(player);
+            currentMap.Map[player.XPos, player.YPos, (int)Layer.Top] = null;
+            Console.WriteLine("{0} has left", player.Name);
+            UpdateGui();
+        }
+
+        public void CheckCurrentPlayers()
+        {
+            currentPlayers.Clear();
+            foreach (MapItem tile in currentMap.Map)
+            {
+                if (tile is not Player) { continue; }
+                Player player = (Player)tile;
+                Console.WriteLine("{0} is connected", player.Name);
+                currentPlayers.Add(player);
+            }
+        }
+        
         public void NPCJoin(NPC player)
         {
             int xOffset = 0;
             int yOffset = 0;
             currentEntities.Add(player);
-            while (currentMap.movingLayer[player.mapReference.XPos + xOffset, player.mapReference.YPos + yOffset] is not null)
+            while (currentMap.Map[player.XPos + xOffset, player.YPos + yOffset, (int)Layer.Top] is not null)
             {
                 Console.WriteLine("Something in the way");
                 xOffset += 1;
             }
-            currentMap.movingLayer[player.mapReference.XPos + xOffset, player.mapReference.YPos + yOffset] = player.mapReference;
+            currentMap.Map[player.XPos + xOffset, player.YPos + yOffset, (int)Layer.Top] = player;
+            UpdateGui();
         }
-        public void PlayerLeave(Player player)
-        {
-            currentPlayers.Remove(player);
-            Console.WriteLine("{0} has left", player.Name);
-        }
+
         public void NPCLeave(NPC player)
         {
             currentEntities.Remove(player);
+            currentMap.Map[player.XPos, player.YPos, (int)Layer.Top] = null;
+            UpdateGui();
         }
 
-        public void ChangeMap(Map map)
+        public void ChangeMap(MapSpace map)
         {
             currentMap = map;
+            UpdateGui();
         }
 
         public void UpdateGui()
@@ -74,7 +103,7 @@ namespace Item_4
             }
             for (int i = 0; i < currentEntities.Count; i++)
             {
-                Console.WriteLine("{4}: {0} is at {1},{2} with {3} health", currentEntities[i].Name, currentEntities[i].XPos, currentEntities[i].YPos, currentPlayers[i].Health, i);
+                Console.WriteLine("{4}: {0} is at {1},{2} with {3} health", currentEntities[i].Name, currentEntities[i].XPos, currentEntities[i].YPos, currentEntities[i].Health, i);
             }
         }
     }

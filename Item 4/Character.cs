@@ -6,82 +6,88 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    public abstract class Character
+    public abstract class Character : MapItem
     {
+        protected Game game;
         Random rnd = new Random();
-        private Weapon heldItem;
-        public string name;
-        private int health;
-        private bool dead;
+        protected Weapon heldItem;
+        protected string name;
+        protected int health;
+        protected bool dead;
+        protected int defence;
 
-        public int xPos;
-        public int yPos;
-        public Map map;
-        public PlayerMapItem mapReference;
+        protected bool isWalkable = false;
+        protected int xPos;
+        protected int yPos;
+        protected string mapViewChar;
 
         public int Health
         {
-            get { return health; }
+            get => health;
             set
             {
                 if (value <= 0)
                 {
                     Console.WriteLine("{0} is Dead!", this.name);
-                    health = 0;
                     dead = true;
-                    return;
                 }
-                health = value;
-                Console.WriteLine("{1} has {0} health remaining", this.health, this.Name);
+                Console.WriteLine("{1} has {0} health remaining", value, this.Name);
             }
         }
-
         public string Name
         {
-            get { return name; }
-            set
+            get => name;   //this is the problem we had with the propories only returning 0 as we had get{ return name; }
+            set            // as we return the value of the prportiy **before** we had changed it
             {
                 if (value is null)
                     name = "default name";
-                else
-                    name = value;
+                name = value;
             }
         }
-
+        public int Defence
+        {
+            get { return defence; }
+        }
         public int XPos
         {
             get { return xPos; }
-            set
-            {
-                xPos = value;
-            }
         }
-
         public int YPos
         {
             get { return yPos; }
-            set
-            {
-                yPos = value;
-            }
         }
-
+        public bool IsWalkable { get; }
+        public string MapViewChar { get => mapViewChar; }
 
         public void EquipWeapon(Weapon weapon)
         {
             this.heldItem = weapon;
         }
-
         public void Attack(Character target)
         {
-            if (dead) { return; }
+            if (dead) 
+            {
+                Console.WriteLine("{0} is dead and can't attack!", this.name);
+                return; 
+            }
+            if (MapSpace.DistanceBetweenTwoPoints(this.xPos, this.yPos, target.xPos,target.yPos) > 1)
+            {
+                Console.WriteLine("{0} is too far away to attack!", target.name);
+                return;
+            }
             int damage = rnd.Next(heldItem.MinDamage, heldItem.MaxDamage);
-            Console.WriteLine("{0} dealt {1} damage to {2}", this.Name, damage, target.Name);
+            Console.Write("{0} has been attacked by {1} with {1}'s {2}", target.Name, this.Name, heldItem.Name);
             target.TakeDamage(damage);
         }
-
         public void TakeDamage(int damage)
         {
+            if (damage <= defence)
+            {
+                Console.WriteLine(" but {0}'s armour blocked all damage",Name);
+                return;
+            }
+            damage -= defence;
+            Console.WriteLine(" for {0} but {1}'s armour blocked {2}",damage, this.Name, this.defence);
             this.Health -= damage;
         }
     }
