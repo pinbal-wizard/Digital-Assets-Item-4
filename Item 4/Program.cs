@@ -17,9 +17,10 @@ namespace Item_4
             MapSpace map = new MapSpace(@"../../../GameArea.xml");
             game.ChangeMap(map);
 
-            Warrior warrior = new Warrior(0, 0, "joe", 20,game);
+            Warrior warrior = new Warrior(0, 0, "warrior", 20,game);
             Console.ReadKey();
             warrior.Leave();
+
             Console.ReadKey();
             warrior.Join();
 
@@ -34,6 +35,11 @@ namespace Item_4
 
             joeb.Attack(warrior);
             Console.ReadKey();
+
+            while (true)
+            {
+                game.ProcessTurn();
+            }
 
         }
     }

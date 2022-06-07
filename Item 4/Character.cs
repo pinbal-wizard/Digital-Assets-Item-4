@@ -19,7 +19,7 @@ namespace Item_4
         protected bool isWalkable = false;
         protected int xPos;
         protected int yPos;
-        protected string mapViewChar;
+        protected string mapViewChar = "C";
 
         public int Health
         {
@@ -36,11 +36,9 @@ namespace Item_4
         }
         public string Name
         {
-            get => name;   //this is the problem we had with the propories only returning 0 as we had get{ return name; }
-            set            // as we return the value of the prportiy **before** we had changed it
+            get => name ?? "default name";   
+            set                           
             {
-                if (value is null)
-                    name = "default name";
                 name = value;
             }
         }
@@ -63,6 +61,7 @@ namespace Item_4
         {
             this.heldItem = weapon;
         }
+
         public void Attack(Character target)
         {
             if (dead) 
@@ -79,9 +78,10 @@ namespace Item_4
             Console.Write("{0} has been attacked by {1} with {1}'s {2}", target.Name, this.Name, heldItem.Name);
             target.TakeDamage(damage);
         }
+        
         public void TakeDamage(int damage)
         {
-            if (damage <= defence)
+            if (defence >= damage)
             {
                 Console.WriteLine(" but {0}'s armour blocked all damage",Name);
                 return;
@@ -89,6 +89,11 @@ namespace Item_4
             damage -= defence;
             Console.WriteLine(" for {0} but {1}'s armour blocked {2}",damage, this.Name, this.defence);
             this.Health -= damage;
+        }
+
+        public void Block()
+        {
+            this.defence += 1;
         }
     }
 }

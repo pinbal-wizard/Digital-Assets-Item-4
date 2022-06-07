@@ -14,7 +14,7 @@ namespace Item_4
             this.yPos = yPos;
             this.Name = name;
             this.health = health;
-            this.EquipWeapon(new Weapon("Fists", 0, 2));
+            this.EquipWeapon(new Weapon("Fists", 1, 1));
             this.isWalkable = false;
             this.mapViewChar = "N";
             this.game = game;

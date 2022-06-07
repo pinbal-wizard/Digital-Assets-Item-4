@@ -17,14 +17,15 @@ namespace Item_4
         private List<NPC> currentEntities;
         private MapSpace currentMap;
 
-        public List<Player> CurrentPlayers { get; }
-        public List<NPC> CurrentEntities { get; }
-        public MapSpace CurrentMap { get; }
+        public List<Player> CurrentPlayers { get => currentPlayers; }
+        public List<NPC> CurrentEntities { get => currentEntities; }
+        public MapSpace CurrentMap { get => currentMap; }
 
         public Game()
         {
-            currentPlayers = new List<Player> { };
-            currentEntities = new List<NPC> { };
+            this.currentPlayers = new List<Player> { };
+            this.currentEntities = new List<NPC> { };
+            this.currentMap = new MapSpace( new MapItem[,,] { });
         }
         public Game(List<Player> currentplayers, MapSpace map)
         {
@@ -94,7 +95,7 @@ namespace Item_4
             UpdateGui();
         }
 
-        public void UpdateGui()
+        private void UpdateGui()
         {
             currentMap.DrawMap();
             for (int i = 0; i < currentPlayers.Count; i++)
@@ -104,6 +105,17 @@ namespace Item_4
             for (int i = 0; i < currentEntities.Count; i++)
             {
                 Console.WriteLine("{4}: {0} is at {1},{2} with {3} health", currentEntities[i].Name, currentEntities[i].XPos, currentEntities[i].YPos, currentEntities[i].Health, i);
+            }
+        }
+        
+        public void ProcessTurn()
+        {
+            UpdateGui();
+
+            foreach (Player player in currentPlayers)
+            {
+                Console.WriteLine("{0}'s turn",player.Name); 
+                player.PlayerInput();
             }
         }
     }

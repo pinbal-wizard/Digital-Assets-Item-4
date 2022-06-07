@@ -8,7 +8,6 @@ namespace Item_4
 {
     public class Warrior : Player
     {
-        protected int defence = 2;
         public Warrior(int xPos, int yPos, string name, int health, Game game)
         {
             this.xPos = xPos;
@@ -20,6 +19,7 @@ namespace Item_4
             this.mapViewChar = "W";
             this.game = game;
             game.PlayerJoin(this);
+            this.defence += 2;
         }
         public Warrior(int xPos, int yPos, string name, int health, Weapon weapon, Game game)
         {
@@ -32,6 +32,7 @@ namespace Item_4
             this.mapViewChar = "W";
             this.game = game;
             game.PlayerJoin(this);
+            this.defence += 2;
         }
 
     }

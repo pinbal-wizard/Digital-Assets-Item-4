@@ -9,7 +9,7 @@ namespace Item_4
 {
     public class MapSpace
     {
-        private MapItem[,,] map;  //Map
+        private MapItem[,,] map;  
 
         public MapItem[,,] Map
         {
@@ -44,10 +44,10 @@ namespace Item_4
                         coloum.InnerText = "x";
                     }
                     map[x, y,(int)Layer.Bottom] = new Grass(x, y, coloum.InnerText);
-                    y += 1;
+                    x += 1;
                 }
-                y = 0;
-                x += 1;
+                x = 0;
+                y += 1;
             }
             this.map = map;
         }
@@ -72,7 +72,7 @@ namespace Item_4
             {
                 for(int j = 0; j < map.GetLength(1); j++)
                 {
-                    Console.Write(GetTile(i, j).MapViewChar + " ");
+                    Console.Write(GetTile(j, i).MapViewChar + " ");
                 }
                 Console.WriteLine();
             }
@@ -81,6 +81,13 @@ namespace Item_4
         public static int DistanceBetweenTwoPoints(int x1, int y1, int x2, int y2)
         {
             return (int)Math.Ceiling(Math.Sqrt((Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2))));
+        }
+
+        public void UpdatePos(int x, int y)
+        {
+            var temp = map[x, y, (int)Layer.Top];
+            map[x, y, (int)Layer.Top] = null;
+            map[temp.XPos, temp.YPos, (int)Layer.Top] = temp;
         }
     }
 }

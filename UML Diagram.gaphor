@@ -2584,6 +2584,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="dad8d0bf-e214-11ec-bdaf-b0403128d8bc"/>
 <ref refid="e09a81c6-e214-11ec-a6da-b0403128d8bc"/>
 <ref refid="e8ba69c6-e214-11ec-a32c-b0403128d8bc"/>
+<ref refid="117b455e-e2de-11ec-a310-b0403128d8bc"/>
 </reflist>
 </ownedOperation>
 <presentation>
@@ -2594,7 +2595,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </Class>
 <ClassItem id="9d471724-dd5c-11ec-b12b-b0403128d8bc">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 351.77999842018176, 198.0)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 351.7799984201818, 187.13157894736838)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -2603,7 +2604,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>160.0</val>
 </width>
 <height>
-<val>148.0</val>
+<val>166.0</val>
 </height>
 <diagram>
 <ref refid="97412afe-dd5c-11ec-9bd9-b0403128d8bc"/>
@@ -2800,7 +2801,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 673.0, 292.0)</val>
 </matrix>
 <points>
-<val>[(-161.22000157981824, -21.86842105263156), (27.279999999999973, -21.86842105263156)]</val>
+<val>[(-161.2200015798182, -23.9640825035562), (27.279999999999973, -21.86842105263156)]</val>
 </points>
 <head-connection>
 <ref refid="9d471724-dd5c-11ec-b12b-b0403128d8bc"/>
@@ -3194,7 +3195,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 437.0981151424712, 319.4445999989871)</val>
 </matrix>
 <points>
-<val>[(-1.2200015798182449, 26.555400001012913), (0.0, 112.87871968804649)]</val>
+<val>[(-1.220001579818188, 33.686978948381295), (0.0, 112.87871968804649)]</val>
 </points>
 <head-connection>
 <ref refid="9d471724-dd5c-11ec-b12b-b0403128d8bc"/>
@@ -4576,7 +4577,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 438.77495234276415, 122.02868276500635)</val>
 </matrix>
 <points>
-<val>[(-1.6768372002929368, 5.647623193104835), (-2.8968387801111817, 75.97131723499365)]</val>
+<val>[(-1.6768372002929368, 5.647623193104835), (-2.896838780111125, 65.10289618236203)]</val>
 </points>
 <tail-connection>
 <ref refid="9d471724-dd5c-11ec-b12b-b0403128d8bc"/>
@@ -5324,4 +5325,12 @@ existing classes or even new classes with specific responsibilities.</val>
 <ref refid="8ffd9a21-dd65-11ec-957a-b0403128d8bc"/>
 </ownerFormalParam>
 </Parameter>
+<Operation id="117b455e-e2de-11ec-a310-b0403128d8bc">
+<class_>
+<ref refid="9d46f072-dd5c-11ec-abb2-b0403128d8bc"/>
+</class_>
+<name>
+<val>UpdateGui</val>
+</name>
+</Operation>
 </gaphor>
