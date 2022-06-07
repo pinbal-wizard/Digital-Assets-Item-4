@@ -9,21 +9,31 @@ namespace Item_4
 {
     public class MapSpace
     {
-        private MapItem[,,] map;  
+        private List<Player> currentPlayers;
+        private List<NPC> currentEntities;
+        private MapItem[,] map;  
 
-        public MapItem[,,] Map
+        public MapItem[,] Map
         {
             get
             {
                 return map;
             }
         }
-        public MapSpace(MapItem[,,] map)
+        public List<Player> CurrentPlayers { get => currentPlayers; }
+        public List<NPC> CurrentEntities { get => currentEntities; }
+        public MapSpace(MapItem[,] map)
         {
             this.map = map;
+            this.currentPlayers = new List<Player> { };
+            this.currentEntities = new List<NPC> { };
+
         }
         public MapSpace(string backgroundlayerFilepath)
         {
+            this.currentPlayers = new List<Player> { };
+            this.currentEntities = new List<NPC> { };
+
             Console.WriteLine("Inializing map from {0}", backgroundlayerFilepath);
 
             XmlDocument backgroundXML = new XmlDocument();
@@ -31,7 +41,7 @@ namespace Item_4
 
             int ySize = backgroundXML.DocumentElement.ChildNodes.Count;
             int xSize = backgroundXML.DocumentElement.FirstChild.ChildNodes.Count;
-            MapItem[,,] map = new MapItem[ySize, xSize, 2];
+            MapItem[,] map = new MapItem[ySize, xSize];
 
             int y = 0;
             int x = 0;
@@ -43,24 +53,40 @@ namespace Item_4
                     {
                         coloum.InnerText = "x";
                     }
-                    map[x, y,(int)Layer.Bottom] = new Grass(x, y, coloum.InnerText);
-                    x += 1;
+                    map[x, y] = new Grass(x, y, coloum.InnerText);
+                    y += 1;
                 }
-                x = 0;
-                y += 1;
+                y = 0;
+                x += 1;
             }
             this.map = map;
         }
+        public void PlayerJoin(Player player)
+        {
+            Console.WriteLine("{0} has joined", player.Name);
+            currentPlayers.Add(player);
+        }
 
+        public void PlayerLeave(Player player)
+        {
+            currentPlayers.Remove(player);
+            Console.WriteLine("{0} has left", player.Name);
+        }
+
+        public void NPCJoin(NPC player)
+        {
+            currentEntities.Add(player);
+        }
+
+        public void NPCLeave(NPC player)
+        {
+            currentEntities.Remove(player);
+        }
         public MapItem GetTile(int x, int y)
         {
-            if (map[x, y,(int)Layer.Top] is not null)
+            if (map[x, y] is not null)
             {
-                return map[x, y, (int)Layer.Top];
-            }
-            if (map[x, y,(int)Layer.Bottom] is not null)
-            {
-                return map[x, y, (int)Layer.Bottom];
+                return map[x, y];
             }
             return new Grass(x,y,".");
         }
@@ -72,22 +98,26 @@ namespace Item_4
             {
                 for(int j = 0; j < map.GetLength(1); j++)
                 {
-                    Console.Write(GetTile(j, i).MapViewChar + " ");
+                    Console.Write(GetTile(i, j).MapViewChar + " ");
                 }
                 Console.WriteLine();
             }
+            foreach (NPC player in currentEntities)
+            {
+                Console.SetCursorPosition(player.XPos * 2, player.YPos);
+                Console.Write(player.MapViewChar);
+            }
+            foreach (Player player in currentPlayers)
+            {
+                Console.SetCursorPosition(player.XPos * 2, player.YPos);
+                Console.Write(player.MapViewChar);
+            }
+            Console.SetCursorPosition(0, map.GetLength(0));
         }
 
         public static int DistanceBetweenTwoPoints(int x1, int y1, int x2, int y2)
         {
             return (int)Math.Ceiling(Math.Sqrt((Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2))));
-        }
-
-        public void UpdatePos(int x, int y)
-        {
-            var temp = map[x, y, (int)Layer.Top];
-            map[x, y, (int)Layer.Top] = null;
-            map[temp.XPos, temp.YPos, (int)Layer.Top] = temp;
         }
     }
 }

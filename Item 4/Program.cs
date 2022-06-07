@@ -17,29 +17,17 @@ namespace Item_4
             MapSpace map = new MapSpace(@"../../../GameArea.xml");
             game.ChangeMap(map);
 
-            Warrior warrior = new Warrior(0, 0, "warrior", 20,game);
             Console.ReadKey();
-            warrior.Leave();
-
-            Console.ReadKey();
-            warrior.Join();
-
-            NPC mick = new NPC(2, 2, "mick", 20, game);
-            warrior.Attack(mick);
             
-            Console.ReadKey();
-
-            NPC joeb = new NPC(0, 0, "joeb", 20, game);
-            warrior.Attack(joeb);
-            Console.ReadKey();
-
-            joeb.Attack(warrior);
-            Console.ReadKey();
+            Warrior player = new Warrior(1, 1, "Warrior", 10, new Weapon("Fists", 1, 1), game);
+            NPC Joe = new NPC(1, 1, "Joe", 10, game);
+            NPC Joe2 = new NPC(1, 2, "Joe2", 10, game);
 
             while (true)
             {
                 game.ProcessTurn();
             }
+            Console.ReadKey();
 
         }
     }

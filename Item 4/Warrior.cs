@@ -18,7 +18,7 @@ namespace Item_4
             this.isWalkable = false;
             this.mapViewChar = "W";
             this.game = game;
-            game.PlayerJoin(this);
+            game.CurrentMap.PlayerJoin(this);
             this.defence += 2;
         }
         public Warrior(int xPos, int yPos, string name, int health, Weapon weapon, Game game)
@@ -31,7 +31,7 @@ namespace Item_4
             this.isWalkable = false;
             this.mapViewChar = "W";
             this.game = game;
-            game.PlayerJoin(this);
+            game.CurrentMap.PlayerJoin(this);
             this.defence += 2;
         }
 

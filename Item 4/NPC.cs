@@ -18,7 +18,7 @@ namespace Item_4
             this.isWalkable = false;
             this.mapViewChar = "N";
             this.game = game;
-            game.NPCJoin(this);
+            game.CurrentMap.NPCJoin(this);
         }
     }
 }

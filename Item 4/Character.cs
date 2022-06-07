@@ -23,7 +23,19 @@ namespace Item_4
 
         public int Health
         {
-            get => health;
+            get
+            {
+                if (health <= 0)
+                {
+                    Console.WriteLine("{0} is Dead!", this.name);
+                    return 0;
+                }
+                else
+                {
+                    //DEFAULT value here. 
+                    return health;
+                }
+            }
             set
             {
                 if (value <= 0)
@@ -48,12 +60,35 @@ namespace Item_4
         }
         public int XPos
         {
-            get { return xPos; }
+            get
+            {
+                if (xPos < 0)
+                {
+                    xPos = 0;
+                    return 0;
+                }
+                else
+                {
+                    return xPos;
+                }
+            }
         }
         public int YPos
         {
-            get { return yPos; }
+            get
+            {
+                if (yPos < 0)
+                {
+                    yPos = 0;
+                    return 0;
+                }
+                else
+                {
+                    return yPos;
+                }
+            }
         }
+    
         public bool IsWalkable { get; }
         public string MapViewChar { get => mapViewChar; }
 
