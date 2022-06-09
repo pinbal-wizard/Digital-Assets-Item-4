@@ -65,12 +65,12 @@ namespace Item_4
                 if (xPos < 0)
                 {
                     xPos = 0;
-                    return 0;
                 }
-                else
+                else if (xPos > game.CurrentMap.Map.GetLength(1) -1)
                 {
-                    return xPos;
+                    xPos = game.CurrentMap.Map.GetLength(1);
                 }
+                return xPos;
             }
         }
         public int YPos
@@ -80,12 +80,12 @@ namespace Item_4
                 if (yPos < 0)
                 {
                     yPos = 0;
-                    return 0;
                 }
-                else
+                else if (xPos > game.CurrentMap.Map.GetLength(1) -1)
                 {
-                    return yPos;
+                    xPos = game.CurrentMap.Map.GetLength(1);
                 }
+                return yPos;
             }
         }
     
