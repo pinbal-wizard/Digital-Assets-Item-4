@@ -68,7 +68,7 @@ namespace Item_4
                 }
                 else if (xPos > game.CurrentMap.Map.GetLength(1) -1)
                 {
-                    xPos = game.CurrentMap.Map.GetLength(1);
+                    xPos = game.CurrentMap.Map.GetLength(1) -1;
                 }
                 return xPos;
             }
@@ -81,9 +81,9 @@ namespace Item_4
                 {
                     yPos = 0;
                 }
-                else if (xPos > game.CurrentMap.Map.GetLength(1) -1)
+                else if (yPos > game.CurrentMap.Map.GetLength(0) -1)
                 {
-                    xPos = game.CurrentMap.Map.GetLength(1);
+                    yPos = game.CurrentMap.Map.GetLength(0) -1;
                 }
                 return yPos;
             }
