@@ -49,11 +49,19 @@ namespace Item_4
             {
                 foreach (XmlNode coloum in row.ChildNodes)
                 {
-                    if (coloum.InnerText == null)
+                    switch (coloum.InnerText)
                     {
-                        coloum.InnerText = "x";
+                        case null:
+                            coloum.InnerText = "x";
+                            break;
+                        case ".":
+                            map[x, y] = new Grass(x, y, coloum.InnerText);
+                            break;
+                        case "@":
+                            map[x, y] = new Obstacle(x, y, coloum.InnerText);
+                            break;
                     }
-                    map[x, y] = new Grass(x, y, coloum.InnerText);
+
                     y += 1;
                 }
                 y = 0;

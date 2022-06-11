@@ -37,6 +37,7 @@ namespace Item_4
         private void UpdateGui()
         {
             currentMap.DrawMap();
+            Console.WriteLine();
             foreach (Player player in currentMap.CurrentPlayers)
             {
                 Console.WriteLine("Player: {0} is at {1},{2} with {3} health", player.Name, player.XPos, player.YPos, player.Health);

@@ -17,8 +17,6 @@ namespace Item_4
             MapSpace map = new MapSpace(@"../../../GameArea.xml");
             game.ChangeMap(map);
 
-            Console.ReadKey();
-            
             Warrior player = new Warrior(1, 1, "Warrior", 10, new Weapon("Fists", 1, 1), game);
             NPC Joe = new NPC(1, 1, "Joe", 10, game);
             NPC Joe2 = new NPC(1, 2, "Joe2", 10, game);

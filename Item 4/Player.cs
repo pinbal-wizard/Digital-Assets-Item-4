@@ -16,18 +16,26 @@ namespace Item_4
             switch (input.ToString()) {
                 case "W":
                     Console.WriteLine("You pressed W");
+                    if (yPos == 0) { break; }
+                    if (!game.CurrentMap.Map[this.yPos - 1, this.xPos].IsWalkable) { break; }
                     this.yPos -= 1;
                     break;
                 case "A":
                     Console.WriteLine("You pressed A");
+                    if (xPos == 0) { break; }
+                    if (!game.CurrentMap.Map[this.yPos, this.xPos - 1].IsWalkable) { break; }
                     this.xPos -= 1;
                     break;
                 case "S":
                     Console.WriteLine("You pressed S");
+                    if (yPos == game.CurrentMap.Map.GetLength(0) - 1) { break; }
+                    if (!game.CurrentMap.Map[this.yPos + 1, this.xPos].IsWalkable) { break; }
                     this.yPos += 1;
                     break;
                 case "D":
                     Console.WriteLine("You pressed D");
+                    if (xPos == game.CurrentMap.Map.GetLength(1) - 1) { break; }
+                    if (!game.CurrentMap.Map[this.yPos, this.xPos + 1].IsWalkable) { break; }
                     this.xPos += 1;
                     break;
             }
