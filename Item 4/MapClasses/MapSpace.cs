@@ -54,7 +54,10 @@ namespace Item_4
                     switch (coloum.InnerText)
                     {
                         case null:
-                            coloum.InnerText = "x";
+                            map[x, y] = new Grass(x, y, "x", coloum.Attributes.ToString());
+                            break;
+                        case "_":
+                            map[x, y] = new TallGrass(x, y, "_", coloum.Attributes.ToString());
                             break;
                         case ".":
                             map[x, y] = new Grass(x, y, coloum.InnerText, coloum.Attributes.ToString());

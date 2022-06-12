@@ -124,9 +124,15 @@ namespace Item_4
             Console.Write("{0} has been attacked by {1} with {1}'s {2}", target.Name, this.Name, heldItem.Name);
             target.TakeDamage(damage);
         }
-
+        
         public void TakeDamage(int damage)
         {
+            MapItem currentTile = game.CurrentMap.Map[this.yPos, this.xPos];
+            if (currentTile is Cover)
+            {
+                damage = damage / 2;
+            }
+
             if (defence >= damage)
             {
                 Console.WriteLine(" but {0}'s armour blocked all damage", Name);

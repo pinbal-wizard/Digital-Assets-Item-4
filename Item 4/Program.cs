@@ -16,7 +16,7 @@ namespace Item_4
             MapSpace map = new MapSpace(@"../../../GameArea.xml");
             game.ChangeMap(map);
 
-            Warrior player = new Warrior(game, 1, 1, "Warrior", 10, "W" );
+            Warrior warrior = new Warrior(game, 1, 1, "Warrior", 10, "W" );
             Healer healer= new Healer(game, 1, 1, "Healer", 10, "H");
             NPC Joe = new NPC(game, 1, 1, "Joe", 10, "N", true);
             NPC Joe2 = new NPC(game, 1, 1, "Joe2", 10, "n", false);

@@ -27,8 +27,8 @@
 		<Column>@</Column>
 		<Column>.</Column>
 		<Column>.</Column>
-		<Column>.</Column>
-		<Column>.</Column>
+		<Column>_</Column>
+		<Column>_</Column>
 	</Row>
 	<Row>
 		<Column>.</Column>
@@ -37,8 +37,8 @@
 		<Column>.</Column>
 		<Column>.</Column>
 		<Column>.</Column>
-		<Column>.</Column>
-		<Column>.</Column>
+		<Column>_</Column>
+		<Column>_</Column>
 
 	</Row>
 </Map>
