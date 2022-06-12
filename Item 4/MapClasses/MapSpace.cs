@@ -7,21 +7,18 @@ using System.Xml;
 
 namespace Item_4
 {
-    public class MapSpace
+    internal class MapSpace
     {
         private List<Player> currentPlayers;
         private List<NPC> currentEntities;
-        private MapItem[,] map;  
+        private MapItem[,] map;
 
-        public MapItem[,] Map
-        {
-            get
-            {
-                return map;
-            }
-        }
         public List<Player> CurrentPlayers { get => currentPlayers; }
+
         public List<NPC> CurrentEntities { get => currentEntities; }
+        
+        public MapItem[,] Map { get => map; }
+
         public MapSpace(MapItem[,] map)
         {
             this.map = map;
@@ -29,12 +26,17 @@ namespace Item_4
             this.currentEntities = new List<NPC> { };
 
         }
+        
         public MapSpace(string backgroundlayerFilepath)
         {
             this.currentPlayers = new List<Player> { };
             this.currentEntities = new List<NPC> { };
 
-            Console.WriteLine("Inializing map from {0}", backgroundlayerFilepath);
+            this.map = CreateMap(backgroundlayerFilepath);
+        }
+        private MapItem[,] CreateMap(string backgroundlayerFilepath)
+        {
+            //Console.WriteLine("Inializing map from {0}", backgroundlayerFilepath);
 
             XmlDocument backgroundXML = new XmlDocument();
             backgroundXML.Load(backgroundlayerFilepath);
@@ -55,20 +57,24 @@ namespace Item_4
                             coloum.InnerText = "x";
                             break;
                         case ".":
-                            map[x, y] = new Grass(x, y, coloum.InnerText);
+                            map[x, y] = new Grass(x, y, coloum.InnerText, coloum.Attributes.ToString());
                             break;
                         case "@":
-                            map[x, y] = new Obstacle(x, y, coloum.InnerText);
+                            map[x, y] = new Rock(x, y, coloum.InnerText, coloum.Attributes.ToString());
+                            break;
+                        default:
+                            map[x, y] = new Grass(x, y, "x", coloum.Attributes.ToString());
                             break;
                     }
-
                     y += 1;
                 }
                 y = 0;
                 x += 1;
             }
-            this.map = map;
+            GC.Collect();
+            return map;
         }
+        
         public void PlayerJoin(Player player)
         {
             Console.WriteLine("{0} has joined", player.Name);
@@ -90,18 +96,18 @@ namespace Item_4
         {
             currentEntities.Remove(player);
         }
-        public MapItem GetTile(int x, int y)
+        private MapItem GetTile(int x, int y)
         {
             if (map[x, y] is not null)
             {
                 return map[x, y];
             }
-            return new Grass(x,y,".");
+            return new Grass(x,y,".", "Grass");
         }
 
         public void DrawMap()
         {
-            Console.Clear();
+            Console.SetCursorPosition(0,0);
             for(int i = 0; i < map.GetLength(0); i++)
             {
                 for(int j = 0; j < map.GetLength(1); j++)

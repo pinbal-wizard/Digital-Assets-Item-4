@@ -6,19 +6,22 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    public class Obstacle : MapItem
+    internal class Grass : MapItem
     {
+        private string name;
+        public string Name { get; set; }
         public int XPos { get; set; }
         public int YPos { get; set; }
         public bool IsWalkable { get; set; }
         public String MapViewChar { get; set; }
 
-        public Obstacle(int xPos, int yPos, string mapViewChar)
+        public Grass(int xPos, int yPos, string mapViewChar, string Name)
         {
             XPos = xPos;
             YPos = yPos;
-            IsWalkable = false;
+            IsWalkable = true;
             MapViewChar = mapViewChar;
+            name = Name ??= "Unknown name";
         }
     }
 }

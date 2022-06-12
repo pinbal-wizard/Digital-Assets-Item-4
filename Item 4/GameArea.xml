@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Map>
 	<Row>
-		<Column>O</Column>
+		<Column name="rock">O</Column>
 		<Column>.</Column>
 		<Column>.</Column>
 		<Column>.</Column>

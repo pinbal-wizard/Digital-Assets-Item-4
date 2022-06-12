@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    public abstract class Character : MapItem
+    internal abstract class Character : MapItem
     {
         protected Game game;
-        Random rnd = new Random();
-        protected Weapon heldItem;
-        protected string name;
-        protected int health;
-        protected bool dead;
-        protected int defence;
-
-        protected bool isWalkable = false;
         protected int xPos;
         protected int yPos;
+        protected string name;
+        protected int health;
+        protected bool isWalkable = false;
         protected string mapViewChar = "C";
+        protected int defence;
+        protected Weapon heldItem;
+        protected bool dead;
 
+        Random rnd = new Random();
+        
         public int Health
         {
             get
@@ -32,7 +32,6 @@ namespace Item_4
                 }
                 else
                 {
-                    //DEFAULT value here. 
                     return health;
                 }
             }
@@ -48,8 +47,8 @@ namespace Item_4
         }
         public string Name
         {
-            get => name ?? "default name";   
-            set                           
+            get => name ??= "default name";
+            set
             {
                 name = value;
             }
@@ -66,9 +65,9 @@ namespace Item_4
                 {
                     xPos = 0;
                 }
-                else if (xPos > game.CurrentMap.Map.GetLength(1) -1)
+                else if (xPos > game.CurrentMap.Map.GetLength(1) - 1)
                 {
-                    xPos = game.CurrentMap.Map.GetLength(1) -1;
+                    xPos = game.CurrentMap.Map.GetLength(1) - 1;
                 }
                 return xPos;
             }
@@ -81,16 +80,28 @@ namespace Item_4
                 {
                     yPos = 0;
                 }
-                else if (yPos > game.CurrentMap.Map.GetLength(0) -1)
+                else if (yPos > game.CurrentMap.Map.GetLength(0) - 1)
                 {
-                    yPos = game.CurrentMap.Map.GetLength(0) -1;
+                    yPos = game.CurrentMap.Map.GetLength(0) - 1;
                 }
                 return yPos;
             }
         }
-    
-        public bool IsWalkable { get; }
+
+        public bool IsWalkable { get => false; }
         public string MapViewChar { get => mapViewChar; }
+
+        public Character(Game game, int xPos, int yPos, string name, int health, string mapViewChar)
+        {            
+            this.game = game;
+            this.xPos = xPos;
+            this.yPos = yPos;
+            this.Name = name;
+            this.health = health;
+            this.isWalkable = false;
+            this.mapViewChar = mapViewChar;
+            this.heldItem = new Weapon("Fists", 0, 1, 1);
+        }
 
         public void EquipWeapon(Weapon weapon)
         {
@@ -99,12 +110,12 @@ namespace Item_4
 
         public void Attack(Character target)
         {
-            if (dead) 
+            if (dead)
             {
                 Console.WriteLine("{0} is dead and can't attack!", this.name);
-                return; 
+                return;
             }
-            if (MapSpace.DistanceBetweenTwoPoints(this.xPos, this.yPos, target.xPos,target.yPos) > 1)
+            if (MapSpace.DistanceBetweenTwoPoints(this.xPos, this.yPos, target.xPos, target.yPos) > 1)
             {
                 Console.WriteLine("{0} is too far away to attack!", target.name);
                 return;
@@ -113,22 +124,31 @@ namespace Item_4
             Console.Write("{0} has been attacked by {1} with {1}'s {2}", target.Name, this.Name, heldItem.Name);
             target.TakeDamage(damage);
         }
-        
+
         public void TakeDamage(int damage)
         {
             if (defence >= damage)
             {
-                Console.WriteLine(" but {0}'s armour blocked all damage",Name);
+                Console.WriteLine(" but {0}'s armour blocked all damage", Name);
                 return;
             }
             damage -= defence;
-            Console.WriteLine(" for {0} but {1}'s armour blocked {2}",damage, this.Name, this.defence);
+            Console.WriteLine(" for {0} but {1}'s armour blocked {2}", damage, this.Name, this.defence);
             this.Health -= damage;
         }
 
-        public void Block()
+        public void Heal(int amount)
         {
-            this.defence += 1;
+            health += amount;
+        }
+        public void Heal()
+        {
+            health += 2;
+        }
+
+        public virtual void DisplayInformation()
+        {
+            Console.WriteLine("Player: {0} is at {1},{2} with {3} health", this.Name, this.XPos, this.YPos, this.Health);
         }
     }
 }

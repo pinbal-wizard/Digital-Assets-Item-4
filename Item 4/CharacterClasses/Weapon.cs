@@ -13,16 +13,12 @@ namespace Item_4
         private int maxDamage = 0;
         private int minDamage = 0;
 
+        private int range;
+
         public string Name
         {
             get => name;
-            set { 
-                if(name is null)
-                {
-                    value = "deafult name";
-                }
-                name = value + " ";
-            }
+            set { name = (value ??= "deafult name") + " "; }
         }
         public int MaxDamage
         {
@@ -32,12 +28,18 @@ namespace Item_4
         {
             get => minDamage;
         }
+        public int Range
+        {
+            get => range;
+        }
 
-        public Weapon(string name, int minD, int maxD)
+
+        public Weapon(string name, int minD, int maxD, int range)
         {
             this.name = name;
             this.minDamage = minD;
             this.maxDamage = maxD;
+            this.range = range;
         }
     }
 }

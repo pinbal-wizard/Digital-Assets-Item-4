@@ -11,22 +11,20 @@ namespace Item_4
     {
         static void Main()
         {
-
             Game game = new Game();
 
             MapSpace map = new MapSpace(@"../../../GameArea.xml");
             game.ChangeMap(map);
 
-            Warrior player = new Warrior(1, 1, "Warrior", 10, new Weapon("Fists", 1, 1), game);
-            NPC Joe = new NPC(1, 1, "Joe", 10, game);
-            NPC Joe2 = new NPC(1, 2, "Joe2", 10, game);
+            Warrior player = new Warrior(game, 1, 1, "Warrior", 10, "W" );
+            Healer healer= new Healer(game, 1, 1, "Healer", 10, "H");
+            NPC Joe = new NPC(game, 1, 1, "Joe", 10, "N", true);
+            NPC Joe2 = new NPC(game, 1, 1, "Joe2", 10, "n", false);
 
             while (true)
             {
                 game.ProcessTurn();
             }
-            Console.ReadKey();
-
         }
     }
 }
