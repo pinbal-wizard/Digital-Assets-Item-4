@@ -10,9 +10,9 @@ namespace Item_4
     {
         private bool isHostile;
 
-        private bool IsHostile
+        private bool IsHostile //not implemented yet
         {
-            get => isHostile; 
+            get{ return isHostile; throw new NotImplementedException(); } 
         }
         public NPC(Game game, int xPos, int yPos, string name, int health, string mapViewChar, bool isHostile) 
             : base(game, xPos, yPos, name, health, mapViewChar)

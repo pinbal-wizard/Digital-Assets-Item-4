@@ -15,7 +15,7 @@ namespace Item_4
 
         private int range;
 
-        public string Name
+        public string Name //get and set name with deafault name
         {
             get => name;
             set { name = (value ??= "deafult name") + " "; }

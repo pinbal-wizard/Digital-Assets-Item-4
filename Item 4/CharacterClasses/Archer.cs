@@ -10,6 +10,7 @@ namespace Item_4
     {
         public Archer(Game game, int xPos, int yPos, string name, int health, string mapViewChar) : base(game, xPos, yPos, name, health, mapViewChar)
         {
+            throw new NotImplementedException();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Item_4
         protected Player(Game game, int xPos, int yPos, string name, int health, string mapViewChar) 
         : base(game, xPos, yPos, name, health, mapViewChar) { game.CurrentMap.PlayerJoin(this); }
         
-        public virtual ConsoleKey PlayerInput()
+        public virtual ConsoleKey PlayerInput() //base player input commands
         {
             Console.Write("Awaiting Player Input..  ");
             ConsoleKey input = Console.ReadKey().Key;
@@ -42,11 +42,11 @@ namespace Item_4
             }
             return ConsoleKey.Enter;
         }
-        public void Join()
+        public void Join() //join the game
         {
             game.CurrentMap.PlayerJoin(this);
         }
-        public void Leave()
+        public void Leave() //leave the game
         {
             game.CurrentMap.PlayerLeave(this);
         }

@@ -28,7 +28,7 @@ namespace Item_4
             UpdateGui();
         }
 
-        private void UpdateGui()
+        private void UpdateGui() //draws over the map updating it with the new map and new player positions
         {
             currentMap.DrawMap();
             Console.WriteLine();
@@ -44,11 +44,11 @@ namespace Item_4
             }
         }
         
-        public void ProcessTurn()
+        public void ProcessTurn() //updates gui and handles player interaction
         {
-            UpdateGui();
-            
-            foreach (Player player in currentMap.CurrentPlayers)
+            UpdateGui(); //update the gui
+
+            foreach (Player player in currentMap.CurrentPlayers) //give each player a turn and redraws the gui (have to fix the player responses and not clearing old lines)
             {
                 ClearCurrentConsoleLine();
                 Console.WriteLine("{0}'s turn",player.Name);
@@ -58,7 +58,7 @@ namespace Item_4
             }
         }
 
-        public static void ClearCurrentConsoleLine()
+        public static void ClearCurrentConsoleLine() //not mine
         {
             int currentLineCursor = Console.CursorTop;
             Console.SetCursorPosition(0, Console.CursorTop);

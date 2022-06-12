@@ -20,8 +20,8 @@ namespace Item_4
         protected bool dead;
 
         Random rnd = new Random();
-        
-        public int Health
+
+        public int Health  //get and set health if health is less than or equal to 0, set dead to true
         {
             get
             {
@@ -45,7 +45,7 @@ namespace Item_4
                 Console.WriteLine("{1} has {0} health remaining", value, this.Name);
             }
         }
-        public string Name
+        public string Name //get and set name if no name set to default name
         {
             get => name ??= "default name";
             set
@@ -57,7 +57,7 @@ namespace Item_4
         {
             get { return defence; }
         }
-        public int XPos
+        public int XPos  //get x position of character and dont let it go out of the map
         {
             get
             {
@@ -72,24 +72,24 @@ namespace Item_4
                 return xPos;
             }
         }
-        public int YPos
+        public int YPos  //get y position of character and dont let it go out of the map
         {
             get
             {
-                if (yPos < 0)
+                if (xPos < 0)
                 {
-                    yPos = 0;
+                    xPos = 0;
                 }
-                else if (yPos > game.CurrentMap.Map.GetLength(0) - 1)
+                else if (xPos > game.CurrentMap.Map.GetLength(1) - 1)
                 {
-                    yPos = game.CurrentMap.Map.GetLength(0) - 1;
+                    xPos = game.CurrentMap.Map.GetLength(1) - 1;
                 }
-                return yPos;
+                return xPos;
             }
         }
 
-        public bool IsWalkable { get => false; }
-        public string MapViewChar { get => mapViewChar; }
+        public bool IsWalkable { get => false; } //player is never walkable             (doesent work anyway)
+        public string MapViewChar { get => mapViewChar; } //charactor the player sees on the map
 
         public Character(Game game, int xPos, int yPos, string name, int health, string mapViewChar)
         {            
@@ -110,49 +110,50 @@ namespace Item_4
 
         public void Attack(Character target)
         {
-            if (dead)
+            if (dead) //cant attack if dead
             {
                 Console.WriteLine("{0} is dead and can't attack!", this.name);
                 return;
             }
-            if (MapSpace.DistanceBetweenTwoPoints(this.xPos, this.yPos, target.xPos, target.yPos) > 1)
+            if (MapSpace.DistanceBetweenTwoPoints(this.xPos, this.yPos, target.xPos, target.yPos) > heldItem.Range) //if target is too far away dont attack
             {
                 Console.WriteLine("{0} is too far away to attack!", target.name);
                 return;
             }
             int damage = rnd.Next(heldItem.MinDamage, heldItem.MaxDamage);
             Console.Write("{0} has been attacked by {1} with {1}'s {2}", target.Name, this.Name, heldItem.Name);
-            target.TakeDamage(damage);
+            target.TakeDamage(damage);    //attack target
         }
         
         public void TakeDamage(int damage)
         {
             MapItem currentTile = game.CurrentMap.Map[this.yPos, this.xPos];
-            if (currentTile is Cover)
+            if (currentTile is Cover) //if in a tile with cover half damadge
             {
                 damage = damage / 2;
             }
 
-            if (defence >= damage)
+            if (defence >= damage) //if defence is greater than damage, no damage is taken
             {
                 Console.WriteLine(" but {0}'s armour blocked all damage", Name);
                 return;
             }
-            damage -= defence;
+            damage -= defence; //reduce damage by defence
             Console.WriteLine(" for {0} but {1}'s armour blocked {2}", damage, this.Name, this.defence);
-            this.Health -= damage;
+            this.Health -= damage; //take damage
         }
 
-        public void Heal(int amount)
+        public void Heal(int amount) //healer heal
         {
             health += amount;
         }
-        public void Heal()
+        
+        public void Heal() //self heal
         {
             health += 2;
         }
 
-        public virtual void DisplayInformation()
+        public virtual void DisplayInformation() //information to display on the map
         {
             Console.WriteLine("Player: {0} is at {1},{2} with {3} health", this.Name, this.XPos, this.YPos, this.Health);
         }

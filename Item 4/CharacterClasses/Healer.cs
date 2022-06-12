@@ -17,17 +17,17 @@ namespace Item_4
             mana = 100;
         }
 
-        public void Heal(Character target, int amount)
+        public void Heal(Character target, int amount) //heal target and reduce mana from healing
         {
-            if (mana >= amount * 10)
+            if (mana >= amount * 10) //if not enough mana cant heal
             {
                 mana -= amount * 10;
                 target.Heal(amount);
                 return;
             }
         }
-        
-        public override ConsoleKey PlayerInput()
+
+        public override ConsoleKey PlayerInput()  //player input but with healer specific commands
         {
             RegenMana();
             ConsoleKey input = base.PlayerInput();
@@ -50,7 +50,7 @@ namespace Item_4
         {
             mana += 10;
         }
-        public override void DisplayInformation()
+        public override void DisplayInformation() //information to display to user
         {
             Console.WriteLine("Player: {0} is at {1},{2} with {3} health and {4} mana", this.Name, this.XPos, this.YPos, this.Health, this.mana);
         }
