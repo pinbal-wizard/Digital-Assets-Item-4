@@ -18,6 +18,7 @@ namespace Item_4
         protected int defence;
         protected Weapon heldItem;
         protected bool dead;
+        protected List<Weapon> backpack;
 
         Random rnd = new Random();
 
@@ -76,20 +77,21 @@ namespace Item_4
         {
             get
             {
-                if (xPos < 0)
+                if (yPos < 0)
                 {
-                    xPos = 0;
+                    yPos = 0;
                 }
-                else if (xPos > game.CurrentMap.Map.GetLength(1) - 1)
+                else if (yPos > game.CurrentMap.Map.GetLength(0) - 1)
                 {
-                    xPos = game.CurrentMap.Map.GetLength(1) - 1;
+                    yPos = game.CurrentMap.Map.GetLength(0) - 1;
                 }
-                return xPos;
+                return yPos;
             }
         }
 
         public bool IsWalkable { get => false; } //player is never walkable             (doesent work anyway)
         public string MapViewChar { get => mapViewChar; } //charactor the player sees on the map
+        public List<Weapon> Bacpack { get => backpack; }
 
         public Character(Game game, int xPos, int yPos, string name, int health, string mapViewChar)
         {            
@@ -100,12 +102,16 @@ namespace Item_4
             this.health = health;
             this.isWalkable = false;
             this.mapViewChar = mapViewChar;
-            this.heldItem = new Weapon("Fists", 0, 1, 1);
+            this.heldItem = new Fists();
         }
 
         public void EquipWeapon(Weapon weapon)
         {
             this.heldItem = weapon;
+        }
+        public void EquipWeapon(int IndexInBackpack)
+        {   
+            this.heldItem = backpack[IndexInBackpack];
         }
 
         public void Attack(Character target)

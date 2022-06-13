@@ -53,28 +53,32 @@ namespace Item_4
                 {
                     switch (coloum.InnerText) //switch case for all the different map items (will become based on tags instead of hardcoded)
                     {
-                        case null:
+                        default:
                             map[x, y] = new Grass(x, y, "x", coloum.Attributes.ToString());
-                            break;
-                        case "_":
-                            map[x, y] = new TallGrass(x, y, "_", coloum.Attributes.ToString());
                             break;
                         case ".":
                             map[x, y] = new Grass(x, y, coloum.InnerText, coloum.Attributes.ToString());
                             break;
+                        case "_":
+                            map[x, y] = new TallGrass(x, y, coloum.InnerText, coloum.Attributes.ToString());
+                            break;
+                        case "|":
+                            map[x, y] = new Tree(x, y, coloum.InnerText, coloum.Attributes.ToString());
+                            break;
                         case "@":
                             map[x, y] = new Rock(x, y, coloum.InnerText, coloum.Attributes.ToString());
                             break;
-                        default:
-                            map[x, y] = new Grass(x, y, "x", coloum.Attributes.ToString());
+                        case "-":
+                            map[x, y] = new Cliff(x, y, coloum.InnerText, coloum.Attributes.ToString());
                             break;
+
                     }
                     y += 1;
                 }
                 y = 0;
                 x += 1;
             }
-            GC.Collect(); //garbadge collect xml as it is no longer needed
+            GC.Collect(); //garbage collect xml as it is no longer needed
             return map;
         }
         

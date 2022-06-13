@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    public class Weapon 
+    internal abstract class Weapon 
     {
-        private string name;
+        protected string name;
 
-        private int maxDamage = 0;
-        private int minDamage = 0;
+        protected int maxDamage = 0;
+        protected int minDamage = 0;
 
-        private int range;
+        protected int range;
 
         public string Name //get and set name with deafault name
         {
@@ -22,17 +22,16 @@ namespace Item_4
         }
         public int MaxDamage
         {
-            get => maxDamage;
+            get { if (maxDamage < 0) { maxDamage = 1; } return maxDamage; }
         }
         public int MinDamage
         {
-            get => minDamage;
+            get { if (minDamage < 0) { minDamage = 0; } return minDamage; }
         }
         public int Range
         {
             get => range;
         }
-
 
         public Weapon(string name, int minD, int maxD, int range)
         {
@@ -41,5 +40,7 @@ namespace Item_4
             this.maxDamage = maxD;
             this.range = range;
         }
+        
+        public Weapon() { }
     }
 }

@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    internal class Mage : Player
+    internal class NPCMage : NPC
     {
         protected int mana;
 
         public int Mana { get; }
         
-        public Mage(Game game, int xPos, int yPos, string name, int health, string mapViewChar) : base(game, xPos, yPos, name, health, mapViewChar)
+        public NPCMage(Game game, int xPos, int yPos, string name, int health, string mapViewChar, bool isHostile) 
+            : base(game, xPos, yPos, name, health, mapViewChar, isHostile)
         {
-            mana = 500;
+            this.mana = 500;
         }
         
         public void CastMagic() //not implemented yet
