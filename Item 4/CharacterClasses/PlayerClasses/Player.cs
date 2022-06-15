@@ -37,6 +37,15 @@ namespace Item_4
                     if (!game.CurrentMap.Map[this.yPos, this.xPos + 1].IsWalkable) { break; }
                     this.xPos += 1;
                     break;
+                case "E":
+                    foreach (NPC enemy in game.CurrentMap.CurrentEntities)
+                    {
+                        if (enemy.IsHostile & heldItem.Range >= MapSpace.DistanceBetweenTwoPoints(XPos, YPos, enemy.XPos, enemy.YPos))
+                        {
+                            this.Attack(enemy);
+                        }
+                    }
+                    break;
                 default:
                     return input;
             }

@@ -13,7 +13,7 @@ namespace Item_4
         {
             Game game = new Game();
 
-            MapSpace map = new MapSpace(@"../../../GameArea.xml");
+            MapSpace map = new MapSpace(@"../../../GameArea.xml");  
             game.ChangeMap(map);
 
             Warrior warrior = new Warrior(game, 1, 1, "Warrior", 10, "W" );

@@ -44,6 +44,7 @@ namespace Item_4
                     dead = true;
                 }
                 Console.WriteLine("{1} has {0} health remaining", value, this.Name);
+                health = value;
             }
         }
         public string Name //get and set name if no name set to default name
