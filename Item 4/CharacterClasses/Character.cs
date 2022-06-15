@@ -27,7 +27,7 @@ namespace Item_4
             get
             {
                 if (health <= 0)
-                {
+                 {
                     Console.WriteLine("{0} is Dead!", this.name);
                     return 0;
                 }
@@ -137,7 +137,7 @@ namespace Item_4
             MapItem currentTile = game.CurrentMap.Map[this.yPos, this.xPos];
             if (currentTile is Cover) //if in a tile with cover half damadge
             {
-                damage = damage / 2;
+                damage /=  2;
             }
 
             if (defence >= damage) //if defence is greater than damage, no damage is taken

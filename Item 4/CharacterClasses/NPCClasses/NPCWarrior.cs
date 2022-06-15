@@ -28,7 +28,7 @@ namespace Item_4
 
         public override void DisplayInformation() //information to display when warrior is selected
         {
-            Console.WriteLine("Player: {0} is at {1},{2} with {3} health and {4} defence", this.Name, this.XPos, this.YPos, this.Health, this.defence);
+            Console.WriteLine("NPC: {0} is at {1},{2} with {3} health and {4} defence", this.Name, this.XPos, this.YPos, this.Health, this.defence);
         }
     }
 }
