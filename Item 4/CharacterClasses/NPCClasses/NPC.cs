@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Item_4
 {
-    internal class NPC : Character
+    internal abstract class NPC : Character
     {
         private bool isHostile;
 

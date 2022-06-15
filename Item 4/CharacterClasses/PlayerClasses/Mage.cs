@@ -33,7 +33,7 @@ namespace Item_4
 
         public override void DisplayInformation() //information to display to the user
         {
-            Console.WriteLine("NPC: {0} is at {1},{2} with {3} health and {4} mana", this.Name, this.XPos, this.YPos, this.Health, this.mana);
+            Console.WriteLine("Player: {0} is at {1},{2} with {3} health and {4} mana", this.Name, this.XPos, this.YPos, this.Health, this.mana);
         }
     }
 }
